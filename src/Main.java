@@ -1,16 +1,35 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
+import java.util.Scanner;
 
+public class Main {
 
     public static void main(String[] args) {
         System.out.println("Калькулятор");
-        double a = 5;
-        double b = 0;
-//        Calc w = new Calc();
-        System.out.println(a + " / " + b + " = "+ Calc.division(a,b));
-        System.out.println(a + " + " + b + " = "+ Calc.add(a,b));
+
+        Scanner scanner = new Scanner(System.in); // создаём объект для чтения ввода
+
+        System.out.print("Введите первое число: ");
+        double a = scanner.nextDouble(); // читаем число
+
+        System.out.print("Введите второе число: ");
+        double b = scanner.nextDouble();
+
+        System.out.println("Введите операцию + или /");
+        String c = scanner.next();
+        double result;
+        Division div = new Division();
+        Addition add = new Addition();
+
+
+        if (c.equals("+")) {
+            result = add.calculation(a, b);
+        } else if (c.equals("/")) {
+            result = div.calculation(a, b);
+        } else {
+            System.out.println("Неизвестная операция");
+            return;
+        }
+
+        System.out.println("Результат: " + result);
     }
+        }
 
-
-}
