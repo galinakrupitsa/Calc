@@ -16,14 +16,14 @@ public class Main {
         System.out.println("Введите операцию + или /");
         String c = scanner.next();
         double result;
-        Division div = new Division();
-        Addition add = new Addition();
 
 
         if (c.equals("+")) {
-            result = add.calculation(a, b);
+            Calculation op = new Addition();
+            result = op.calculation(a, b);
         } else if (c.equals("/")) {
-            result = div.calculation(a, b);
+            Calculation op = new Division();
+            result = op.calculation(a, b);
         } else {
             System.out.println("Неизвестная операция");
             return;
